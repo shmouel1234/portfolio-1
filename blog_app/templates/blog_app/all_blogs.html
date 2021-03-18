@@ -1,0 +1,26 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<h1>Blog Page</h1>
+
+<div >
+<h3>currently in the blog 
+<span style="color:red">{{blogs.count}}</span>
+ articles{{blogs.count|pluralize}}</h3>
+
+
+{% for blog in blogs %} 
+<div style="background-color:plum; width: 400px; margin-bottom:30px">
+<a href="{% url 'details' blog.id %}">title</a>: {{blog.title}}
+<br />
+<span style="font-weight:bold">date</span>: {{blog.date}}
+<br />
+
+ <span style="font-weight:bold">description</span>: {{blog.description|truncatechars:50}}
+<br />
+</div>
+{%endfor%}
+</div>
+
+{% endblock %}

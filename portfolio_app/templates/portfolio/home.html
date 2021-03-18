@@ -1,0 +1,20 @@
+
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1>My PortFolio</h1>
+
+<br>
+<img src="{%  static 'portfolio_app/full_stack.jpg' %}"/>
+<br>
+{% for project in projects %} 
+title: {{project.title}}
+<br /> 
+description: {{project.description}}
+<br />
+<img src="{{project.image.url}}" style="width:350px; height:200px" >
+{%endfor%}
+
+{% endblock %}
